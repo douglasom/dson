@@ -9,6 +9,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class MapUtilsTest {
     @Test
@@ -20,6 +21,7 @@ class MapUtilsTest {
     void flatten() {
         Map<String, Object> deepMap = new HashMap<>();
         deepMap.put("name", "Douglas");
+        deepMap.put("religion", null);
         List<String> hobbies = Arrays.asList("motorcycling", "videogames", "music");
         deepMap.put("hobbies", hobbies);
         Map<String, Object> contactInfo = new HashMap<>();
@@ -28,8 +30,10 @@ class MapUtilsTest {
         deepMap.put("contactInfo", contactInfo);
 
         Map flatMap = MapUtils.flatten(deepMap);
-        assertEquals(4, flatMap.size());
+        assertEquals(5, flatMap.size());
         assertEquals("Douglas", flatMap.get("name"));
+        assertNull(flatMap.get("religion"));
+        assertTrue(flatMap.containsKey("religion"));
         assertEquals(hobbies, flatMap.get("hobbies"));
         assertTrue(flatMap.containsKey("contactInfo.email"));
         assertEquals("douglas.mendes@gmail.com", flatMap.get("contactInfo.email"));
