@@ -6,8 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class DsonTest {
     @Test
     void jsonToCsv() {
-        String csv = Dson.jsonToCsv("{\n" +
+        String csv = new Dson().jsonToCsv("{\n" +
                 "    \"name\": \"Douglas\",\n" +
+                "    \"yearOfBirth\": 1983,\n" +
                 "    \"hobbies\": [\n" +
                 "        \"motorcycling\",\n" +
                 "        \"videogames\",\n" +
@@ -19,7 +20,7 @@ class DsonTest {
                 "    }\n" +
                 "}");
 
-        assertEquals("contactInfo.email,contactInfo.github,hobbies,name\n" +
-                "douglas.mendes@gmail.com,douglasom,\"motorcycling;videogames;music\",Douglas\n", csv);
+        assertEquals("contactInfo.email,contactInfo.github,hobbies,name,yearOfBirth\n" +
+                "douglas.mendes@gmail.com,douglasom,\"motorcycling;videogames;music\",Douglas,1983\n", csv);
     }
 }
