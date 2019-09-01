@@ -22,3 +22,5 @@ When transormed into CSV:
 contactInfo.email,contactInfo.github,hobbies,name\n
 douglas.mendes@gmail.com,douglasom,"motorcycling;videogames;music",Douglas\n
 ```
+
+Notice the alphabetical order instead of JSON fields order? That might bother you but consider this: field order isn't something predicted by the JSON representation convention. So it's not a good idea do rely on that anyway. We might add a Comparator as an optional parameter soon, though.
