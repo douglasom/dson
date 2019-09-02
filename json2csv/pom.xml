@@ -7,6 +7,19 @@
   <artifactId>json2csv</artifactId>
   <version>0.1</version>
   <packaging>jar</packaging>
+  <url>https://github.com/douglasom/dson</url>
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/douglasom/dson</url>
+  </scm>
 
   <name>Json2Csv exporter</name>
   <description>For generating flat csv from a json that might have nested elements.</description>
@@ -14,11 +27,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-    </dependencies>
-  </dependencyManagement>
 
   <dependencies>
     <dependency>
