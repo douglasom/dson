@@ -1,6 +1,5 @@
 package douglasom.json2csv;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -25,12 +24,12 @@ class DsonTest {
     }
 
     @Test
-    void flatMapToCsv() throws JsonProcessingException {
+    void flatMapToCsv() {
         Map<String, Object> flatMap = new HashMap<>();
         flatMap.put("name", "Douglas");
         flatMap.put("religion", null);
 
-        String csv = new Dson().flatMapToJson(flatMap);
+        String csv = new Dson().flatMapToCsv(flatMap);
 
         assertEquals("name,religion\n" +
                 "Douglas,\n", csv);
@@ -67,5 +66,17 @@ class DsonTest {
 
         assertEquals("name,yearOfBirth\n" +
                 "Douglas,1983\n", csv);
+    }
+
+    @Test
+    void jsonToCsvNestedFieldSeparator() {
+        String csv = new Dson().setNestedFieldSeparator("-").jsonToCsv("{\n" +
+                "    \"book\": {\n" +
+                "       \"title\": \"Pragmatic Programmer\"\n" +
+                "    }\n" +
+                "}");
+
+        assertEquals("book-title\n" +
+                "\"Pragmatic Programmer\"\n", csv);
     }
 }
