@@ -28,7 +28,9 @@ public class Dson {
     private String nestedFieldSeparator = ".";
 
     /**
-     * If true (which is is by default), will generate columns even for the fields that are null (but present) at the JSON.
+     * If true, will generate columns even for the fields that are null (but present) at the JSON.
+     * @param readNullsFromJson If should read nulls (default: true).
+     * @return this, for chaining.
      */
     public Dson setReadNullsFromJson(boolean readNullsFromJson) {
         this.readNullsFromJson = readNullsFromJson;
@@ -36,11 +38,12 @@ public class Dson {
     }
 
     /**
-     * Default: "."
-     *
      * String appended right before each nested field at the column header. Default value is ".". That means for a
      * JSON like this: { "book": { "title": "Pragmatic Programmer" } } the property "title" will become a column
      * with the following header: "book.title".
+     *
+     * @param separator The separator (default: ".")
+     * @return this, for chaining.
      */
     public Dson setNestedFieldSeparator(String separator) {
         this.nestedFieldSeparator = separator;
