@@ -1,6 +1,6 @@
 Transforms a json object into a single row in a csv.
 
-A json object might have nested objects and/or list of values. If you want a json object to be transformed into a single row in a CSV, you might have just got lucky finding this lib you're reading about right now.
+A json object might have nested objects and/or list of values. If you want a json object to be transformed into a single row in a CSV, you might have just gotten lucky finding this lib you're reading about right now.
 
 Example:
 ```
